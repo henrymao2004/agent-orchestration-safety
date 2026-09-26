@@ -1,0 +1,28 @@
+[project]
+name = "trustfork"
+version = "1.0.0"
+description = "Does the main agent trust to orchestrate because of the subagent's identity? An LLM agent benchmark for displayed identity as vulnerability."
+readme = "README.md"
+requires-python = ">=3.12"
+license = "Apache-2.0"
+authors = [
+    {name = "Xutao Mao"},
+    {name = "Rui Qian"},
+    {name = "Linghan Chen"},
+    {name = "Yudong Gao"},
+    {name = "Junchi Liao"},
+    {name = "Junlin Cai"},
+    {name = "Jinman Zhao"},
+    {name = "Cong Wang"},
+]
+dependencies = [
+    "pyyaml>=6.0",
+]
+
+[project.urls]
+Repository = "https://github.com/henrymao2004/agent-orchestration-safety"
+Homepage = "https://henrymao2004.github.io/agent-orchestration-safety/"
+Dataset = "https://huggingface.co/datasets/sevens2004/trustfork"
+
+[tool.uv]
+package = false

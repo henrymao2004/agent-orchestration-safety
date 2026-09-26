@@ -1,0 +1,12 @@
+TrustFork
+Copyright 2026 Xutao Mao, Rui Qian, Linghan Chen, Yudong Gao, Junchi Liao, Junlin Cai, Jinman Zhao, and Cong Wang
+
+This distribution includes benchmark tasks, mock tools, verifiers, and
+documentation released under the Apache License 2.0.
+
+The benchmark runs on Harbor, which is a separate dependency and is not
+redistributed here.
+
+Source scenarios under trustfork/scenarios/canary/ come from Agent3σ-Canary
+and retain that project's Apache-2.0 license and NOTICE.
+No credentials or private account data are included.

@@ -1,0 +1,17 @@
+format:
+  pattern: "^(feat|fix|docs|style|refactor|test|chore)(\\(.+\\))?!?: .{10,72}$"
+  require_scope: false
+  require_issue: true
+  issue_pattern: "[A-Z]+-[0-9]+"
+validation:
+  max_subject_length: 72
+  max_body_length: 500
+  require_body: false
+  allowed_types:
+    - feat
+    - fix
+    - docs
+    - style
+    - refactor
+    - test
+    - chore

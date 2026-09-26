@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrustFork — Trust the Brand, Lose Control</title>
+  <meta name="description" content="Displayed identity hijacks LLM agent delegation. 1,890 tasks per system, 16 agent systems, 27,826 trajectories.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/sentence-cloud.css">
+</head>
+<body class="page-home">
+  <section class="hero-cloud" id="heroCloud">
+    <div class="cloud-layer" id="cloudLayer"></div>
+    <div class="hero-center">
+      <h1>Trust the Brand,<br>Lose Control<br><em>How identity hijacks delegation</em></h1>
+      <p class="hero-sub">
+        <span>The main agent picks who gets to act. Sometimes it picks a name, not the evidence.</span>
+        <span>Safer advice showed up most of the time. It still rarely got the keys.</span>
+      </p>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="hero-stat-n">1,890</span><span class="hero-stat-l">Tasks / system</span></div>
+        <div class="hero-stat"><span class="hero-stat-n">16</span><span class="hero-stat-l">Agent systems</span></div>
+        <div class="hero-stat"><span class="hero-stat-n">27,826</span><span class="hero-stat-l">Trajectories</span></div>
+        <div class="hero-stat"><span class="hero-stat-n">8</span><span class="hero-stat-l">Vulnerability measures</span></div>
+      </div>
+      <p class="hero-authors" style="margin:12px 0 4px;font-size:14px;font-weight:600;max-width:52rem;margin-left:auto;margin-right:auto;line-height:1.45">Xutao Mao<sup>1</sup>, Rui Qian<sup>2</sup>, Linghan Chen<sup>3</sup>, Yudong Gao<sup>4</sup>, Junchi Liao<sup>5</sup>, Junlin Cai<sup>6</sup>, Jinman Zhao<sup>7</sup>, Cong Wang<sup>1</sup></p>
+      <p class="hero-affil" style="font-size:12px;opacity:.78;max-width:46rem;margin:0 auto 10px;line-height:1.45"><sup>1</sup> City University of Hong Kong · <sup>2</sup> Fudan University · <sup>3</sup> University of Adelaide · <sup>4</sup> HKUST · <sup>5</sup> UESTC · <sup>6</sup> USTC · <sup>7</sup> University of Toronto</p>
+      <p class="hero-note">30 risk scenarios · 1,890 tasks · 25 judge diagnostics</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="gallery.html">Browse the showcase</a>
+        <a class="btn btn-ghost" href="findings.html">Read the findings</a>
+        <a class="btn btn-ghost" href="https://github.com/henrymao2004/agent-orchestration-safety">Code</a>
+        <a class="btn btn-ghost" href="https://huggingface.co/datasets/sevens2004/trustfork">Hugging Face</a>
+        <a class="btn btn-ghost" href="#arxiv">arXiv</a>
+      </div>
+    </div>
+    <div class="quote-preview" id="quotePreview"></div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p id="showcaseNote" style="font-size:12px;line-height:1.6">The interactive showcase features selected cases illustrating the paper's central research questions and findings. Public display is curated to manage disclosure of reusable prompt-injection payloads and tool-execution sequences.</p>
+    </div>
+  </footer>
+
+  <script id="cloudData" type="application/json">{
+    "negative": [
+      "The safer answer was sitting right there. It still didn't get to decide.",
+      "They trusted the nametag before they even read the work.",
+      "You can see the safe option. It just never gets the keys.",
+      "The check showed up after the mess was already made.",
+      "It said done. The wrong agent was still holding the wheel.",
+      "Same family? Instant promotion.",
+      "A late check is just a diary of the crash.",
+      "The brand didn't just get listened to. It got to press the button.",
+      "Safer advice walked in. Authority never stood up.",
+      "They handed over the job because the label looked expensive."
+    ],
+    "risky": [
+      "The nametag arrives before any proof.",
+      "Flip one family label and the risky voice gets through three times as often.",
+      "Let the evidence drive. Then hit go.",
+      "Hide the nametags and every harness gets a little safer.",
+      "Once they pick a favorite, they keep picking it.",
+      "Consulting everyone doesn't help if the wrong one still executes."
+    ]
+  }</script>
+  <script src="js/design.js?v=tf-paper-27826"></script>
+  <script src="js/core.js?v=tf-balanced-80"></script>
+  <script src="js/sentence-cloud.js"></script>
+  <script src="js/home.js?v=tf-balanced-80"></script>
+</body>
+</html>

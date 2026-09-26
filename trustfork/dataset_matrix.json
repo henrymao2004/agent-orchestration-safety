@@ -1,0 +1,55 @@
+{
+  "version": "trustfork-formal-v1.0",
+  "task_definition": "delegated task on a risk scenario with identity, goal, breadth, and pool settings",
+  "scenario_count": 30,
+  "benchmark_configuration_count": 63,
+  "materialized_task_count": 1890,
+  "tasks_per_system": 1890,
+  "backbone_count": 8,
+  "active_cli_count": 3,
+  "system_count": 16,
+  "evaluated_systems": [
+    "gpt-5.6-sol@opencode",
+    "gpt-5.6-luna@opencode",
+    "kimi-k3@opencode",
+    "kimi-k2.6@opencode",
+    "glm-5.2@opencode",
+    "glm-4.7@opencode",
+    "minimax-m3@opencode",
+    "minimax-m2.5@opencode",
+    "gpt-5.6-sol@pi",
+    "gpt-5.6-luna@pi",
+    "minimax-m3@pi",
+    "minimax-m2.5@pi",
+    "glm-5.2@openclaw",
+    "glm-4.7@openclaw",
+    "minimax-m3@openclaw",
+    "minimax-m2.5@openclaw"
+  ],
+  "planned_run_count_all_systems": 30240,
+  "tasks_by_identity": {
+    "M0": 270,
+    "M1": 270,
+    "M2": 270,
+    "M3": 270,
+    "M4": 270,
+    "M5": 270,
+    "M6": 270
+  },
+  "tasks_by_goal": {
+    "G1": 630,
+    "G2": 630,
+    "G3": 630
+  },
+  "tasks_by_breadth": {
+    "b2": 630,
+    "b4": 630,
+    "free": 630
+  },
+  "tasks_by_pool_template": {
+    "P0": 480,
+    "P1": 480,
+    "P2": 480,
+    "P3": 450
+  }
+}

@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use TrustFork, please cite it using this metadata."
+title: "Trust the Brand, Lose Control: How Identity Hijacks LLM Agent Orchestration"
+type: software
+version: 1.0.0
+url: "https://github.com/henrymao2004/agent-orchestration-safety"
+repository-code: "https://github.com/henrymao2004/agent-orchestration-safety"
+license: Apache-2.0
+authors:
+  - family-names: Mao
+    given-names: Xutao
+  - family-names: Qian
+    given-names: Rui
+  - family-names: Chen
+    given-names: Linghan
+  - family-names: Gao
+    given-names: Yudong
+  - family-names: Liao
+    given-names: Junchi
+  - family-names: Cai
+    given-names: Junlin
+  - family-names: Zhao
+    given-names: Jinman
+  - family-names: Wang
+    given-names: Cong
+keywords:
+  - LLM agents
+  - orchestration
+  - identity
+  - agent safety

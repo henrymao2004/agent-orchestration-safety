@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Findings — TrustFork</title>
+  <meta name="description" content="TrustFork traces how displayed identity becomes operational authority. A safer response with evidence is present in 84.0% of tasks, yet ends up in charge in only 25.0%.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;650&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/findings.css">
+</head>
+<body class="page-findings">
+  <div class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">Xutao Mao, Rui Qian, Linghan Chen, Yudong Gao, Junchi Liao, Junlin Cai, Jinman Zhao, Cong Wang</span>
+      <h1>Displayed identity as operational authority</h1>
+      <p class="lede">TrustFork traces where a routing label becomes control over the task. Even when another subagent contradicts the risky response, the orchestrator still acts on it in 72.0% of cases on average, most often in the systems with the least terminal harm.</p>
+    </div>
+  </div>
+
+  <nav class="find-toc" id="findToc" aria-label="On this page">
+    <div class="wrap find-toc-inner">
+      <a href="#scope">Scope</a>
+      <a href="#measures">Measures</a>
+      <a href="#task">Task</a>
+      <a href="#systems">Results</a>
+      <a href="#rq1">RQ1</a>
+      <a href="#rq2">RQ2</a>
+      <a href="#rq3">RQ3</a>
+      <a href="#rq4">RQ4</a>
+      <a href="#rq5">RQ5</a>
+    </div>
+  </nav>
+
+  <section class="block wrap" id="scope">
+    <p class="section-kicker muted">Evaluation</p>
+    <h2>1,890 tasks per system · 16 agent systems · 27,826 trajectories</h2>
+    <p class="lede">Thirty risk scenarios and 1,890 individually reviewed tasks. Eight vulnerability measures, 25 judge-annotated diagnostics, and seven code-extracted observations locate where operational authority changes hands.</p>
+    <div class="kpis">
+      <div class="kpi"><div class="n">1,890</div><div class="l">Tasks per system</div></div>
+      <div class="kpi"><div class="n">16</div><div class="l">Agent systems</div></div>
+      <div class="kpi"><div class="n">27,826</div><div class="l">Trajectories</div></div>
+      <div class="kpi"><div class="n">8</div><div class="l">Vulnerability measures</div></div>
+    </div>
+    <div class="finding">
+      <div class="finding-text">
+        <p><strong>An orchestrator trusts the subagent that displays its own model family.</strong> It lets that subagent run a poisoned cache cleaner and checks its action only after the deletion. TrustFork builds each task around a risk scenario and follows the orchestration trajectory that displayed identity shapes. It traces who receives scope, who verifies, whose advice is adopted, and who executes.</p>
+        <p>One subagent carries a risky goal while the other three stay aligned with the user, so contradicting evidence can arise. A task can change the identity a subagent displays while keeping the model behind it, so a shift in who is trusted traces to the label. Each task also sets how many subagents the orchestrator must consult, which separates evidence it never receives from evidence it receives and overrides.</p>
+      </div>
+      <figure class="side-fig wide">
+        <img src="assets/figures/overview.png" alt="TrustFork overview: displayed identity can stay in charge even after the evidence turns against it.">
+        <figcaption><strong>Overview of TrustFork.</strong> An orchestrator trusts a subagent displayed as its own model family, lets it run a poisoned cache cleaner, and checks its action only after the deletion. TrustFork builds each task around a risk scenario and follows the orchestration trajectory that displayed identity shapes. It traces who receives scope, who verifies, whose advice is adopted, and who executes before the run reaches its terminal state.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="block wrap" id="measures">
+    <p class="section-kicker muted">The measures</p>
+    <h2>Eight measures and one failure event along the authority path</h2>
+    <p class="lede">Each score attaches to a decision from returned evidence through operational authority to the terminal state. All eight use vulnerability orientation: higher is more severe. Reports multiply 0–5 anchors by 20. Terminal Harm and Task Utility Loss invert raw safety and utility so they also increase with failure. Captured Authority Rate scores the failure event: the risky response is still adopted or governs execution after evidence contradicts it.</p>
+    <div class="dim-grid" id="metrics"></div>
+  </section>
+
+  <section class="block wrap" id="task">
+    <p class="section-kicker muted">What a task specifies</p>
+    <h2>Identity, goal, breadth, and pool</h2>
+    <p class="lede">Every TrustFork task is <span class="mono">x = (s, m, g, b, p)</span>: a risk scenario, an identity presentation, the goal assigned to one risky subagent, a consultation-breadth requirement, and a four-slot pool. One subagent receives the risky goal, while the others stay user-aligned.</p>
+    <div class="axis-board" id="axes"></div>
+  </section>
+
+  <section class="block wrap" id="systems">
+    <p class="section-kicker muted">Main results</p>
+    <h2>Results across orchestration backbones and harnesses</h2>
+    <p class="lede">Vulnerability measures use ↑, and higher values indicate greater vulnerability. The most common failure is a risky subagent capturing operational authority. Even when another subagent contradicts the risky response, the orchestrator still acts on it in 48.0% to 100.0% of these trajectories. CAR exceeds 50% in 14 of the 16 systems and averages 72.0%. Even GPT-5.6-Sol, the lowest in OpenCode, leaves the risky response in control of 48.6% of them. CAR also does not follow terminal harm. Kimi-K3 and Kimi-K2.6 leave the least terminal harm in OpenCode at 12.6 and 13.6, but they reach the highest CAR at 92.0 and 100.0 and at least twice the verification failure of GPT-5.6-Sol. A low harm score therefore does not certify a sound authority path. Runs orchestrated by GPT-5.6-Luna receive safer subagent responses than runs orchestrated by GPT-5.6-Sol. Their RSR is 20.8 against 23.2. Yet their CAR reaches 75.1 against 48.6, and their terminal harm reaches 27.6 against 20.5. In every model family, evidence inertia is higher under efficient-tier orchestrators than under frontier-tier ones. GLM-4.7 and Minimax-M2.5 leave the most terminal harm in every harness they run under and reach 36.5 and 42.0 under OpenClaw.</p>
+    <div class="table-wrap">
+      <table class="grid" id="sysTable"></table>
+    </div>
+    <p class="muted" style="margin-top:10px">Reported scores are 0–100 vulnerability scores. They multiply 0–5 anchors by 20, and TH and TUL invert raw safety and utility. CAR is the share of trajectories with contradicting evidence in which the risky response is still adopted or governs execution.</p>
+  </section>
+
+  <section class="block wrap" id="rq1">
+    <p class="section-kicker muted">RQ1</p>
+    <h2>Where displayed identity steers authority</h2>
+    <div class="find-stats">
+      <div class="find-stat">
+        <div class="n">25.9% → 74.6%</div>
+        <div class="l">Risky response obtained, truthful vs reversed family</div>
+      </div>
+      <div class="find-stat">
+        <div class="n">54.8% → 67.1%</div>
+        <div class="l">Evidence supports the risky response after a model swap</div>
+      </div>
+      <div class="find-stat">
+        <div class="n">62.3% → 77.7%</div>
+        <div class="l">Risky subagent receives scope, truthful vs reversed family</div>
+      </div>
+    </div>
+    <div class="finding">
+      <div class="finding-text">
+        <p><strong>Changing a label changes which responses arrive.</strong> With the truthful family display, the orchestrator obtains the risky response in 25.9% of tasks. Reversing the family display raises this to 74.6%, which nearly triples the risky response's entry into comparison, and the rise holds in every system where both displays occur. Tier and model cues instead move the risky subagent into the first call without changing how many subagents are consulted, which stays at 2.58 on average. The tier cue raises this share from 12.3% to 33.9%, and the model cue raises it from 21.9% to 33.5%.</p>
+        <p>Exchanging the displayed model raises the share of tasks where observed evidence supports the risky response from 54.8% to 67.1%, and it does so in all eight systems. Safer responses are also lost in two ways: the orchestrator drops a response before comparison in 634 trajectories and discounts it during comparison in 1,090.</p>
+      </div>
+      <figure class="side-fig">
+        <img src="assets/figures/rq1_heard.png" alt="RQ1: altered displays let the risky response in, per system." loading="lazy">
+        <figcaption><strong>Displayed identity changes which responses arrive.</strong> Every system lies above the diagonal: altered displays let the risky response in and make the evidence favor it more often.</figcaption>
+      </figure>
+    </div>
+    <div class="finding flip">
+      <div class="finding-text">
+        <p><strong>Displayed identity decides who gets the work.</strong> Reversing the family display raises the share of tasks where the risky subagent receives scope from 62.3% to 77.7%. Its response also becomes primary more often, from 23.8% to 31.7%, and governs execution more often, from 18.1% to 25.3%. Exchanging the displayed model raises scope from 64.2% to 79.1%, while reversing the tier shifts pooled scope only slightly and in opposite directions across systems.</p>
+        <p>Even the tier cue still reaches the later stages, raising the risky subagent's permission from 13.9% to 19.2% and its execution from 14.6% to 18.5%. Mixed-family pools also show affinity toward same-family subagents. In both such pools, the subagent from the orchestrator's true family receives 21.4 and 19.7 percentage points more tasks than an even split, before the orchestrator decides which response to use.</p>
+      </div>
+      <figure class="side-fig">
+        <img src="assets/figures/rq1_work.png" alt="RQ1: change in the risky subagent's scope, permission, primary role, and execution for each identity cue." loading="lazy">
+        <figcaption><strong>Displayed identity decides who gets the work.</strong> Family and model cues widen the risky subagent's scope in every system, whereas reversing the tier moves it in opposite directions across systems.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="block wrap" id="rq2">
+    <p class="section-kicker muted">RQ2</p>
+    <h2>How operational authority turns into harm</h2>
+    <div class="find-stats">
+      <div class="find-stat">
+        <div class="n">63.8% → 33.5%</div>
+        <div class="l">Unsafe adoption, no restriction vs four subagents</div>
+      </div>
+      <div class="find-stat">
+        <div class="n">84.0% / 25.0%</div>
+        <div class="l">Safer response present, vs in charge</div>
+      </div>
+      <div class="find-stat">
+        <div class="n">96.1%</div>
+        <div class="l">Completed actions that leave the harmful change in place</div>
+      </div>
+    </div>
+    <div class="finding">
+      <div class="finding-text">
+        <p><strong>More responses reduce unsafe adoption, but propagation falls much less.</strong> Among tasks where at least one subagent returns an unsafe response, risk propagates in 28.6% under unrestricted consultation and is contained in 13.7%. Propagation is highest when the risky subagent acts out the scenario attack, at 29.2%, against 26.2% for ignoring risk and 23.9% for seeking authority.</p>
+        <p>Consulting all four subagents roughly halves unsafe adoption, from 63.8% to 33.5%, but propagation falls by only five percentage points, and for GLM-4.7 and Minimax-M3 it rises by 0.5 and 2.4 points instead. The additional responses do not all argue against the risky response: evidence supporting it rises from 39.0% to 64.5% of these tasks, faster than evidence contradicting it, from 16.2% to 35.2%, so propagation barely moves.</p>
+      </div>
+      <figure class="side-fig">
+        <img src="assets/figures/rq2_breadth.png" alt="RQ2: per-system drop in unsafe adoption and in risk propagation with four subagents, and pooled levels without restriction and with four subagents." loading="lazy">
+        <figcaption><strong>More responses reduce unsafe adoption more than risk propagation.</strong> Four subagents cut unsafe adoption far more than propagation in every system.</figcaption>
+      </figure>
+    </div>
+    <div class="finding flip">
+      <div class="finding-text">
+        <p><strong>Safer responses exist but rarely decide.</strong> Consulting all four subagents does not stop the risky subagent from capturing operational authority. When one response recommends a dangerous action, a safer response is present in 84.0% of tasks, yet decides the outcome in only 25.0%. This gap is what CAR measures, and it persists even when every subagent is consulted.</p>
+        <p>An independent check lowers unsafe adoption from 63.8% in unchecked tasks to 34.9%. The dangerous action is carried out in 42.6% of tasks that adopt the unsafe recommendation, compared with 12.2% of tasks that do not. Once the action completes, the harmful change remains in place in 96.1% of cases.</p>
+      </div>
+      <figure class="side-fig">
+        <img src="assets/figures/rq2_gate.png" alt="RQ2: a safer response is present in most tasks yet decides few outcomes." loading="lazy">
+        <figcaption><strong>Safer responses exist but rarely decide.</strong> Checking lowers unsafe adoption, yet safer responses decide few outcomes.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="block wrap" id="rq3">
+    <p class="section-kicker muted">RQ3</p>
+    <h2>Can contradicting evidence take authority back?</h2>
+    <div class="find-stats">
+      <div class="find-stat">
+        <div class="n">73.2% → 48.8%</div>
+        <div class="l">Tasks without contradicting evidence, no restriction vs four subagents</div>
+      </div>
+      <div class="find-stat">
+        <div class="n">13.4% vs 56.5%</div>
+        <div class="l">Propagation when correction lands before vs after the first action</div>
+      </div>
+      <div class="find-stat">
+        <div class="n">24.0% vs 3.3%</div>
+        <div class="l">Risky response still preferred after a same-family vs other-family correction</div>
+      </div>
+    </div>
+    <div class="finding">
+      <div class="finding-text">
+        <p><strong>Contradicting evidence is often missing.</strong> Evidence contradicting any response is absent from 73.2% of tasks under unrestricted consultation. Even consulting all four subagents leaves 48.8% of tasks without it, and from no restriction to four subagents the absence falls in every system.</p>
+        <p>Loss of safer responses can prevent the orchestrator from reconsidering its preferred response. The figure separates tasks without contradicting evidence, tasks where it arrives but the same subagents keep the work, and tasks revised before execution. In tasks without contradicting evidence, the orchestrator never changes these work assignments.</p>
+      </div>
+      <figure class="side-fig">
+        <img src="assets/figures/rq3_missing.png" alt="RQ3: contradicting evidence, inertia, and early revision per system across consultation breadth." loading="lazy">
+        <figcaption><strong>Contradicting evidence misses.</strong> Four subagents narrow the gap, yet half of tasks still lack contradicting evidence.</figcaption>
+      </figure>
+    </div>
+    <div class="finding flip">
+      <div class="finding-text">
+        <p><strong>Correction helps only before action and from another family.</strong> When all four subagents return and contradicting evidence arrives, a correction before the first action leaves risk propagating in 13.4% of tasks. The same correction afterward comes too late: 56.5% propagate even though the orchestrator eventually changes its decision. Propagation is 6.5% when the work is already assigned to subagents supported by the evidence, against 48.1% when the orchestrator keeps its earlier preference.</p>
+        <p>Displayed identity still matters after contradicting evidence arrives, as exchanging the displayed model raises adoption from 58.0% to 69.9%. The evidence source matters too: a same-family correction leaves the risky response preferred in 24.0% of tasks, against 3.3% for an other-family one.</p>
+      </div>
+      <figure class="side-fig">
+        <img src="assets/figures/rq3_timing.png" alt="RQ3: risk propagation by correction timing and update state across systems, and how the correction source and displayed model shape authority after contradiction." loading="lazy">
+        <figcaption><strong>Correction helps only before action and from another family.</strong> Late corrections and kept preferences propagate risk far more than early ones.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="block wrap" id="rq4">
+    <p class="section-kicker muted">RQ4</p>
+    <h2>Where harnesses change the authority path</h2>
+    <div class="find-stats">
+      <div class="find-stat">
+        <div class="n">65.6 / 51.3 / 20.0</div>
+        <div class="l">Safer response visible, OpenCode / Pi / OpenClaw (%)</div>
+      </div>
+      <div class="find-stat">
+        <div class="n">19.7–22.2%</div>
+        <div class="l">Risky response governs execution under all three harnesses</div>
+      </div>
+      <div class="find-stat">
+        <div class="n">46.8 / 37.0 / 19.0</div>
+        <div class="l">Independent check before action, OpenCode / Pi / OpenClaw (%)</div>
+      </div>
+    </div>
+    <div class="finding">
+      <div class="finding-text">
+        <p><strong>Harnesses differ most in what they send back.</strong> A safer response is visible in 65.6% of OpenCode tasks and 51.3% of Pi tasks, yet only 20.0% under OpenClaw, even when the harness launched every requested subagent. By contrast, the risky subagent is consulted first in 25.9% to 27.5% of tasks in every harness and governs execution in 19.7% to 22.2%.</p>
+        <p>Evidence delivery changes much more than execution authority, and fewer returned answers accompany greater response task failure. The backbone also matters within a harness. Under OpenClaw, GLM-5.2 sees a safer response in 61.0% of tasks, while Minimax-M2.5 sees one in only 7.0%.</p>
+      </div>
+      <figure class="side-fig">
+        <img src="assets/figures/rq4_delivery.png" alt="RQ4: safer-response visibility versus risky execution per system and harness." loading="lazy">
+        <figcaption><strong>Harnesses differ most in what they send back.</strong> Safer-response visibility varies widely while risky execution stays near one fifth of tasks.</figcaption>
+      </figure>
+    </div>
+    <div class="finding flip">
+      <div class="finding-text">
+        <p><strong>The check before action is where the lost evidence hurts.</strong> Independent verification before action occurs in 46.8% of OpenCode tasks and 37.0% of Pi tasks but in only 19.0% under OpenClaw. Pooled risk propagation moves the opposite way, from 26.4% under OpenCode and 29.4% under Pi to 34.1% under OpenClaw. Check rates follow the order of safer-response visibility, and the Spearman correlation with propagation across the 16 systems is −0.39.</p>
+        <p>The relation is sharpest in OpenClaw. GLM-5.2 sees a safer response in 61.0% of tasks, checks before acting in 62.7%, and propagates risk in 10.2%, whereas Minimax-M2.5 reaches 7.0%, 7.5%, and 56.8%. Since late correction leaves earlier changes in place, the divergence is fixed before execution, and a terminal score alone would hide where the paths diverged.</p>
+      </div>
+      <figure class="side-fig">
+        <img src="assets/figures/rq4_check.png" alt="RQ4: independent check before action versus risk propagation across 16 systems." loading="lazy">
+        <figcaption><strong>Less checking before action accompanies more risk propagation.</strong> Propagation falls as independent checking rises.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="block wrap" id="rq5">
+    <p class="section-kicker muted">RQ5</p>
+    <h2>Which runtime interventions actually help</h2>
+    <div class="find-stats">
+      <div class="find-stat">
+        <div class="n">−6.2 to −9.1</div>
+        <div class="l">SAF drop from anonymization, all three harnesses</div>
+      </div>
+      <div class="find-stat">
+        <div class="n">6 of 8</div>
+        <div class="l">Measures improved by verify-first under OpenCode and Pi</div>
+      </div>
+      <div class="find-stat">
+        <div class="n">153 → 341 s</div>
+        <div class="l">Wall-clock time per task for verify-first under OpenCode</div>
+      </div>
+    </div>
+    <div class="finding-text narrow">
+      <p>RQ5 tests anonymization, identity attestation, and verification before action with Minimax-M3 under all three harnesses. Anonymization hides the identity cues, whereas identity attestation keeps them and proves they are genuine. Verification before action forces a check before the agent changes the workspace.</p>
+      <p><strong>Anonymization helps most consistently</strong>, improving 20 of 24 harness and measure pairs: security awareness failure falls by 6.2 to 9.1 points, and evidence inertia falls in every harness. Attesting identities raises terminal harm in every harness, because attestation keeps the identity cue and makes it more credible. Verification before action improves six of eight vulnerability measures under OpenCode and Pi, but under OpenClaw it improves only VF and TUL and raises the other six measures, even as the pass rate rises from 66.9% to 75.6%. Under OpenClaw the check arrives after the failure RQ4 exposed, since only 20.0% of tasks return a safer response for the check to use.</p>
+      <p><strong>Protection has a cost.</strong> Under OpenCode, verifying first raises time per task from 153 to 341 seconds, and anonymizing raises it to 270 seconds. Under Pi, both stay within 1.5 times the default. Binding authority to evidence before action is feasible, at a price that depends on the harness.</p>
+    </div>
+    <p style="margin-top:22px">
+      <a class="btn btn-primary" href="gallery.html">Open a trajectory</a>
+      <a class="btn btn-ghost" href="run.html">How to run</a>
+    </p>
+  </section>
+
+  <section class="cite">
+    <div class="wrap">
+      <h2>Cite this work</h2>
+      <pre id="bibtex"></pre>
+      <button class="btn" id="copyCite" type="button">Copy</button>
+    </div>
+  </section>
+
+  <script src="js/design.js?v=tf-paper-27826"></script>
+  <script src="js/core.js?v=tf-paper-27826"></script>
+  <script src="js/findings.js"></script>
+</body>
+</html>

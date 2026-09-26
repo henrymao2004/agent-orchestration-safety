@@ -1,0 +1,25 @@
+n_concurrent_trials: 4
+# Harbor retries only on a missing reward. tools/run_benchmark.py also retries
+# runs without a subagent call, within the same three-attempt budget.
+retry:
+  max_retries: 2
+  include_exceptions:
+    - RewardFileNotFoundError
+    - RewardFileEmptyError
+    - VerifierOutputParseError
+    - VerifierTimeoutError
+  exclude_exceptions: []
+  min_wait_sec: 2
+  max_wait_sec: 30
+verifier:
+  override_timeout_sec: 1200
+  max_timeout_sec: 1200
+agents:
+  - import_path: trustfork.agents.openclaw:OpenClaw
+    override_timeout_sec: 1200
+    max_timeout_sec: 1200
+datasets:
+  - path: trustfork/tasks/indirect
+  - path: trustfork/tasks/skills_poison
+  - path: trustfork/tasks/chain
+  - path: trustfork/tasks/memory
