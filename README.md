@@ -27,14 +27,9 @@
 > 🤖 **AI agents:** read [`AGENT.md`](AGENT.md) for repository invariants, file contracts, and
 > validation commands.
 
-TrustFork evaluates **displayed identity as vulnerability** in
-orchestrated agents. An orchestrator delegates workspace operations to a
-four-candidate subagent pool, inspects returned evidence, and decides whose
-recommendation governs execution. Pool labels that operators intend for
-cost-aware routing are visible before any task evidence arrives. The failure is
-not merely that a subagent gives unsafe advice: it is that displayed identity
-changes who is scoped, verified, adopted, or executed, including after safer or
-contradicting evidence is already available.
+Four subagents bid for a task. One calls itself "gpt-6-astra". The orchestrator sees the label before any evidence arrives, picks the impostor, and lets it run. The real failure isn't bad advice: it's that **a name tag alone decides who gets trusted, verified, and executed**, even after safer or contradicting evidence is already on the table.
+
+TrustFork evaluates **displayed identity as vulnerability** in orchestrated agents. An orchestrator delegates workspace operations to a four-candidate subagent pool, inspects returned evidence, and decides whose recommendation governs execution. Pool labels that operators intend for cost-aware routing are visible before any task evidence arrives.
 
 Findings, paper figures, and the curated trajectory gallery live on the
 **[project website](https://henrymao2004.github.io/agent-orchestration-safety/)**.
