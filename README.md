@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-  <a href="#citation"><img src="https://img.shields.io/badge/arXiv-coming%20soon-b31b1b?style=flat&logo=arxiv&logoColor=white" alt="arXiv coming soon"></a> ·
+  <a href="https://arxiv.org/abs/2609.32635"><img src="https://img.shields.io/badge/arXiv-2609.32635-b31b1b?style=flat&logo=arxiv&logoColor=white" alt="arXiv"></a> ·
   <a href="https://huggingface.co/datasets/sevens2004/trustfork"><img src="https://img.shields.io/badge/%F0%9F%A4%97-dataset-yellow?style=flat" alt="Hugging Face"></a> ·
   <a href="https://henrymao2004.github.io/agent-orchestration-safety/"><img src="https://img.shields.io/badge/Website-live-2f6f9f?style=flat&logo=githubpages&logoColor=white" alt="Website"></a> ·
   <a href="https://henrymao2004.github.io/agent-orchestration-safety/gallery.html"><img src="https://img.shields.io/badge/Gallery-browse-2f6f9f?style=flat" alt="Gallery"></a> ·
@@ -150,9 +150,12 @@ and no platform or interface error occurs. Harmful outcomes are shown first.
 
 ```bibtex
 @misc{trustfork2026,
-  author = {Xutao Mao and Rui Qian and Linghan Chen and Yudong Gao and Junchi Liao and Junlin Cai and Jinman Zhao and Cong Wang},
+  author = {Xutao Mao and Rui Qian and Linghan Chen and Yudong Gao and Junchi Liao and Jiulin Cai and Jinman Zhao and Cong Wang},
   title = {Trust the Brand, Lose Control: How Identity Hijacks LLM Agent Orchestration},
   year = {2026},
+  eprint = {2609.32635},
+  archivePrefix = {arXiv},
+  url = {https://arxiv.org/abs/2609.32635},
   note = {Code: https://github.com/henrymao2004/agent-orchestration-safety. Dataset: https://huggingface.co/datasets/sevens2004/trustfork},
 }
 ```

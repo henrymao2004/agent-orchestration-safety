@@ -54,7 +54,7 @@
             ${links}
             ${D.github ? `<a class="header-link" href="${D.github}" target="_blank" rel="noopener">${svg("gh", true)}<span>GitHub</span></a>` : ""}
             ${D.huggingface ? `<a class="header-link" href="${D.huggingface}" target="_blank" rel="noopener"><span>HF</span></a>` : ""}
-            <a class="header-link" href="#arxiv"><span>arXiv</span></a>
+            <a class="header-link" href="https://arxiv.org/abs/2609.32635" target="_blank" rel="noopener"><span>arXiv</span></a>
           </nav>
         </header>`);
       const ham = document.getElementById("hamburger");

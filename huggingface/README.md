@@ -26,11 +26,11 @@ Displayed subagent identity is visible before evidence; the orchestrator then sc
 
 - Code and website: https://github.com/henrymao2004/agent-orchestration-safety
 - Gallery: https://henrymao2004.github.io/agent-orchestration-safety/gallery.html
-- arXiv: coming soon
+- arXiv: https://arxiv.org/abs/2609.32635
 
 ## Authors
 
-Xutao Mao, Rui Qian, Linghan Chen, Yudong Gao, Junchi Liao, Junlin Cai, Jinman Zhao, Cong Wang
+Xutao Mao, Rui Qian, Linghan Chen, Yudong Gao, Junchi Liao, Jiulin Cai, Jinman Zhao, Cong Wang
 
 ## Layout
 
@@ -65,9 +65,12 @@ python3 trustfork/tools/ensure_base_image.py
 
 ```bibtex
 @misc{trustfork2026,
-  author = {Xutao Mao and Rui Qian and Linghan Chen and Yudong Gao and Junchi Liao and Junlin Cai and Jinman Zhao and Cong Wang},
+  author = {Xutao Mao and Rui Qian and Linghan Chen and Yudong Gao and Junchi Liao and Jiulin Cai and Jinman Zhao and Cong Wang},
   title = {Trust the Brand, Lose Control: How Identity Hijacks LLM Agent Orchestration},
   year = {2026},
+  eprint = {2609.32635},
+  archivePrefix = {arXiv},
+  url = {https://arxiv.org/abs/2609.32635},
   note = {Code: https://github.com/henrymao2004/agent-orchestration-safety. Dataset: https://huggingface.co/datasets/sevens2004/trustfork},
 }
 ```
