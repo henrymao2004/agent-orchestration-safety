@@ -1,0 +1,100 @@
+schema: trustfork-systems-v1
+model_registry:
+  GPT:
+    frontier: gpt-5.6-sol
+    efficient: gpt-5.6-luna
+  Kimi:
+    frontier: kimi-k3
+    efficient: kimi-k2.6
+  GLM:
+    frontier: glm-5.2
+    efficient: glm-4.7
+  MiniMax:
+    frontier: minimax-m3
+    efficient: minimax-m2.5
+providers:
+  zai-coding-plan:
+    npm: "@ai-sdk/anthropic"
+    protocol: anthropic
+    pi_api: anthropic-messages
+    name: GLM
+    base_url: https://api.z.ai/api/anthropic/v1
+    pi_base_url: https://api.z.ai/api/anthropic
+    api_key_env: GLM_API_KEY
+    allowed_hosts: [api.z.ai]
+    models: [glm-5.2, glm-4.7]
+  trustfork-minimax:
+    npm: "@ai-sdk/openai-compatible"
+    protocol: openai-compatible
+    pi_api: openai-completions
+    name: MiniMax
+    base_url: https://api.minimaxi.com/v1
+    api_key_env: MINIMAX_API_KEY
+    allowed_hosts: [api.minimaxi.com]
+    models: [MiniMax-M3, MiniMax-M2.5]
+  openai:
+    npm: "@ai-sdk/openai"
+    protocol: openai
+    pi_api: openai-responses
+    reasoning: true
+    name: GPT
+    base_url: https://api.openai.com/v1
+    base_url_env: OPENAI_BASE_URL
+    api_key_env: OPENAI_API_KEY
+    allowed_hosts: [api.openai.com]
+    models: [gpt-5.6-sol, gpt-5.6-luna]
+  kimi:
+    npm: "@ai-sdk/openai-compatible"
+    protocol: openai-compatible
+    pi_api: openai-completions
+    pi_compat:
+      supportsDeveloperRole: false
+    name: Kimi
+    base_url: https://api.kimi.com/coding/v1
+    api_key_env: KIMI_API_KEY
+    allowed_hosts: [api.kimi.com]
+    models: [k3, kimi-k2.6]
+backbones:
+  glm-5.2:       {family: GLM,     tier: frontier,  provider: zai-coding-plan,   api_model: glm-5.2}
+  glm-4.7:       {family: GLM,     tier: efficient, provider: zai-coding-plan,   api_model: glm-4.7}
+  minimax-m3:    {family: MiniMax, tier: frontier,  provider: trustfork-minimax, api_model: MiniMax-M3}
+  minimax-m2.5:  {family: MiniMax, tier: efficient, provider: trustfork-minimax, api_model: MiniMax-M2.5}
+  gpt-5.6-sol:   {family: GPT,     tier: frontier,  provider: openai,            api_model: gpt-5.6-sol}
+  gpt-5.6-luna:  {family: GPT,     tier: efficient, provider: openai,            api_model: gpt-5.6-luna}
+  kimi-k3:       {family: Kimi,    tier: frontier,  provider: kimi,              api_model: k3, display_model: kimi-k3}
+  kimi-k2.6:     {family: Kimi,    tier: efficient, provider: kimi,              api_model: kimi-k2.6}
+clis:
+  opencode:
+    version: "1.18.13"
+    adapter: opencode_task_tool
+    status: active
+  pi:
+    version: "0.84.1"
+    source_commit: 534bcbffb7e1e7551d9ee3572dfeb278e203e493
+    delegation_package: "@tintinweb/pi-subagents@0.15.0"
+    adapter: native_agent_tool
+    status: active
+  openclaw:
+    version: "2026.7.1-2"
+    adapter: native_sessions_spawn
+    status: active
+evaluation_scope:
+  opencode:
+    - gpt-5.6-sol
+    - gpt-5.6-luna
+    - kimi-k3
+    - kimi-k2.6
+    - glm-5.2
+    - glm-4.7
+    - minimax-m3
+    - minimax-m2.5
+  pi:
+    - gpt-5.6-sol
+    - gpt-5.6-luna
+    - minimax-m3
+    - minimax-m2.5
+  openclaw:
+    - glm-5.2
+    - glm-4.7
+    - minimax-m3
+    - minimax-m2.5

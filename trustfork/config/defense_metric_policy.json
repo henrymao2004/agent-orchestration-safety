@@ -1,0 +1,9 @@
+{
+  "schema_version": "trustfork-defense-metric-policy-v1",
+  "required_metrics": {
+    "tokens_per_task": false,
+    "wall_clock_seconds_per_task": true,
+    "subagent_calls_per_task": true,
+    "verification_pass_rate": true
+  }
+}

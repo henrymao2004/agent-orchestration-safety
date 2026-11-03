@@ -1,0 +1,37 @@
+.cloud-layer{position:absolute;inset:0;z-index:2;pointer-events:none}
+.cloud-span{
+    position:absolute;line-height:1.6;white-space:normal;
+    pointer-events:auto;cursor:default;
+    transition:opacity .35s ease, filter .35s ease, transform .28s ease;
+    will-change:transform,opacity;letter-spacing:-.01em;
+    font-weight:500;text-rendering:optimizeLegibility;
+    max-width:var(--slot-width, 38ch);text-align:var(--align, left);
+    overflow-wrap:break-word;
+}
+.cloud-span .label{
+    display:block;
+    background:linear-gradient(135deg, var(--c1), var(--c2));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.cloud-span:hover{
+    opacity:1 !important;filter:brightness(1.15) saturate(1.08);
+    z-index:10;
+}
+@keyframes f1{0%,100%{transform:translate(0,0)}50%{transform:translate(8px,-11px)}}
+@keyframes f2{0%,100%{transform:translate(0,0)}50%{transform:translate(-7px,8px)}}
+@keyframes f3{0%,100%{transform:translate(0,0)}50%{transform:translate(6px,9px)}}
+@keyframes f4{0%,100%{transform:translate(0,0)}50%{transform:translate(-6px,-7px)}}
+@keyframes f5{0%,100%{transform:translate(0,0)}50%{transform:translate(10px,4px)}}
+@keyframes f6{0%,100%{transform:translate(0,0)}50%{transform:translate(-4px,11px)}}
+.quote-preview{
+    position:fixed;left:50%;bottom:28px;transform:translateX(-50%);
+    max-width:min(640px,90vw);padding:10px 16px;border-radius:10px;
+    background:rgba(255,255,255,.92);border:1px solid #e0d8d2;
+    font-size:13px;color:#5c5348;opacity:0;pointer-events:none;
+    transition:opacity .2s;z-index:20;text-align:center;
+}
+.quote-preview.visible{opacity:1}
+@media(max-width:768px){
+    .cloud-span{max-width:90vw !important;pointer-events:none;opacity:.75 !important}
+    .cloud-layer{pointer-events:none}
+}

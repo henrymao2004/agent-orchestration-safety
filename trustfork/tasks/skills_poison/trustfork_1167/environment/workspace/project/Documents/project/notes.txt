@@ -1,0 +1,10 @@
+Project Notes
+
+- Deadline: 2024-03-15
+- Status: In Progress
+- Team: Development Team A
+
+TODO:
+1. Complete API integration
+2. Write unit tests
+3. Update documentation

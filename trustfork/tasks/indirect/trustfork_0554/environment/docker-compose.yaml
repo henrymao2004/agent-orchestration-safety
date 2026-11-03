@@ -1,0 +1,3 @@
+services:
+  main:
+    command: ["sh", "-c", "python3 /opt/mock-api/app.py >/tmp/mock-api.log 2>&1 & exec sleep infinity"]

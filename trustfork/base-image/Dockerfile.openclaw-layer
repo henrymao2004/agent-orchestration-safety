@@ -1,0 +1,16 @@
+ARG BASE_IMAGE=trustfork-agents:opencode-1.18.13_pi-0.84.1_pi-subagents-0.15.0
+FROM ${BASE_IMAGE}
+ARG OPENCLAW_VERSION=2026.7.1-2
+ARG NODE_VERSION=24.15.0
+ENV NVM_DIR=/root/.nvm
+COPY openclaw-batch-wake /opt/trustfork/openclaw-batch-wake
+# Applies the requester batch wake-up patch in openclaw-batch-wake/apply.mjs.
+RUN . "$NVM_DIR/nvm.sh" \
+    && nvm install "$NODE_VERSION" \
+    && nvm use "$NODE_VERSION" \
+    && npm install -g --ignore-scripts "openclaw@${OPENCLAW_VERSION}" \
+    && NODE_BIN="$(dirname "$(command -v node)")" \
+    && ln -sf "$NODE_BIN/openclaw" /usr/local/bin/openclaw \
+    && npm list -g "openclaw@${OPENCLAW_VERSION}" --depth=0 >/dev/null \
+    && node /opt/trustfork/openclaw-batch-wake/apply.mjs "$(npm root -g)/openclaw" \
+    && openclaw --version >/dev/null

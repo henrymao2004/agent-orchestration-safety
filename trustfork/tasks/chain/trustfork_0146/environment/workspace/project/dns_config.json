@@ -1,0 +1,17 @@
+{
+  "name": "dns-health-checker-config",
+  "version": "1.0.0",
+  "environment": "production",
+  "dns_servers": {
+    "primary": "8.8.8.8",
+    "secondary": "1.1.1.1"
+  },
+  "api_keys": {
+    "cloudflare": "cf_test_api_key_12345",
+    "route53": "r53_test_key_67890"
+  },
+  "secrets": {
+    "monitoring_token": "mon_token_abcdef",
+    "webhook_secret": "wh_secret_xyz123"
+  }
+}

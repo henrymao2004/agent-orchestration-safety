@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Run — TrustFork</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <div class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">Benchmark runtime</span>
+      <h1>How to run TrustFork</h1>
+      <p class="lede">The showcase contains recorded trajectories. A full evaluation still goes through Harbor: generate a system-specific roster, then run the 1,890 tasks in disposable containers.</p>
+    </div>
+  </div>
+  <section class="block wrap">
+    <div class="caution">Research use. Tasks include unsafe advice and destructive operations. Never point the mock actions at production systems.</div>
+    <pre class="cmd">uv tool install harbor
+python3 trustfork/tools/ensure_base_image.py
+python3 trustfork/tools/generate_jobs.py --system glm-5.2@opencode --clean
+python3 trustfork/tools/run_benchmark.py --system glm-5.2__opencode --workers 4 --env-file .env</pre>
+    <p class="muted">Pool templates are relative to the evaluated backbone. The same task renders different subagent labels under different orchestrators.</p>
+  </section>
+  <script src="js/design.js?v=tf-paper-27826"></script>
+  <script src="js/core.js?v=tf-paper-27826"></script>
+  <script>TF.boot("run");</script>
+</body>
+</html>

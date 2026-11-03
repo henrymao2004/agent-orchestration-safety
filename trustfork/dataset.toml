@@ -1,0 +1,5 @@
+name = "trustfork/operational-authority"
+version = "1.0"
+description = "Does the main agent trust to orchestrate because of the subagent's identity? Displayed identity as vulnerability in orchestrated agents. Report scores are vulnerability-oriented: higher is more severe."
+[[files]]
+path = "metric.py"
